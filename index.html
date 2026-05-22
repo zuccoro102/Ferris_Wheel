@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>観覧車模型をつくろう</title>
+        <meta name="description" content="形状記憶合金バネを用い、その特性を利用して回転する「観覧車模型」を学生実験で製作する。">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <header>
+                <h1 id="TOP">形状記憶合金バネを使って<br>
+                観覧車模型を作ろう</h1>
+            </header>
+            <div class="content">
+                <div class="row">
+                    <div  class="col-sm-5">
+                        <section class="information">
+                            <h1>目次</h1>
+                            <ul style="margin-left: 20%;" class="column-list">
+                                <li><a href="#mokuteki">目的</a></li>
+                                <li><a href="#keijou">形状記憶合金とは</a></li>
+                                <li><a href="#base">基本構想</a></li>
+                                <li><a href="#junbi">準備するもの</a></li>
+                                <li><a href="#kiso">基礎実験</a></li>
+                                <li><a href="#buhin">部品の製作</a></li>
+                                <li><a href="#kumitate">組立て</a></li>
+                                <li><a href="#souchi">実験装置</a></li>
+                                <li><a href="#kekka">実験結果</a></li>
+                                <li><a href="#shaji">謝辞</a></li>
+                                <li><a href="#iken">ご意見など</a></li>
+                            </ul>
+                        </section>
+                    </div>
+                    <div class="col-sm-7 align-center">
+                        <video src="imgs/Final_ScreenShot.mp4" alt="観覧車模型" width="60%" autoplay muted>再生できません</video>
+                        <p>観覧車模型最終形</p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- 次のセクションへ　-->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="mokuteki">学生実験での目的</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul>
+                                <li>形状記憶合金の機能・原理を学習し、簡単な応用の一つとして、そのバネを用いて"観覧車模型"を製作する。</li>
+                                <li>温度や加熱位置等を変化させ、効率的に回転する条件等を調べる。またその理由を考える。</li>
+                                <li>この実験を通して</li>
+                            </ul>
+                            <p style="padding-left: 3em; margin: 0;">・形状記憶合金の機能・原理・特性を学習する。</p>
+                            <p style="padding-left: 3em; margin: 0;">・CADによる作図の基礎を学び部品を製作する。</p>
+                            <p>・実験結果から現象を説明する物理法則を推定する。</p>
+                            <ul>
+                                <li>参考資料</li>
+                            </ul>
+                            <p style="padding-left: 3em; margin: 0;">・WEB上の情報。例えば</p>
+                            <p style="padding-left: 5em; margin: 0;"><a href="https://www.youtube.com/shorts/SPpvQq3kDwA">観覧車模型</a></p>
+                            <p style="padding-left: 5em; margin: 0;"><a href="http://hdl.handle.net/10297/7201">TiNi 形状記憶合金エンジンカーの授業実践</a></p>
+                            <p style="padding-left: 5em; margin: 0;"><a href="https://topgun.ed.shizuoka.ac.jp/wordpress/wp-content/uploads/2016/07/トップガンジャーナルNo55%E3%80%80SMAエンジンをつくろう.pdf">お湯で動くSMAエンジンをつくろう！</a></p>
+                            <p style="padding-left: 3em; margin: 0;"><a href="https://www.furukawa-ftm.com/tokusyu/technical/technical/">・形状記憶合金とは</a></p>
+                            <p style="padding-left: 3em; margin: 0;"><a href="https://www.jstage.jst.go.jp/article/trbane1952/1985/30/1985_30_25/_article/-char/ja/">・TiNi形状記憶合金コイルばねの特性</a></p>
+                            <P style="padding-left: 3em; margin: 0;">・ChatGPT、Gemini</P>
+                            <p style="padding-left: 3em; margin: 0;">・その他</p>
+                        </div>
+                        <div class="col-sm-5 align-center">
+                            <img src="imgs/coil.png" alt="coil" width="50%">
+                            <p>形状記憶合金製バネ</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ　-->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="keijou">形状記憶合金 (Shape Memory Alloy：SMA)とは</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>ある温度(いわゆる変態点)以下で変形しても、その温度以上に加熱すると元の形状に回復する性質(形状記憶効果)を持つ合金。チタンとニッケルの合金(ニッケルチタン)が一般的であるが、様々な素材が使われている。</li>
+                        <li>金属結晶構造の歪みに対して変態点以上の温度を加えると弾性が生じて元の形状に戻ろうとする特性を持つようになる。ただし、結晶構造が変わってしまうほどの極端な変形、または結晶構造が崩れるほどの高温を加えると、この弾性が損なわれ、可塑性によりその時の形状が記憶されてしまう。</li>
+                        <li>変態点以上の温度での変形範囲(弾性範囲)は他の金属に比べて非常に広い(超弾性)。</li>
+                        <li>応用例として、アクチュエータ、締め付け具、衣類、自動車、建築物、エンジンなどがある。</li>
+                    </ul>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul>
+                                <li>形状記憶合金の応力-ひずみ曲線の例を右図に示す。</li>
+                                <li>(a)は通常の金属材料で、弾性域を越えて変形させて力を除くと永久変形が残る。</li>
+                                <li>(b)の形状記憶合金の場合は、変形が残っても、その後加熱するともとに戻る。
+                                <li>(c)は変形させても力を除くとすぐにもとに戻る”超弾性”を示している。 変態点以上の温度の形状記憶合金はこのような曲線を示す。</li>
+                                <li>参考：<a href="https://www.furukawa-ftm.com/tokusyu/technical/technical/">形状記憶合金とは(古河テクノマテリアル)</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 align-center">
+                            <img src="imgs/stress_strain_furu.png" alt="stress_strain_furu" width="330">
+                            <p>応力-ひずみ曲線の概念図</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ　-->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul>
+                                <li>形状記憶効果や超弾性は、母相(オーステナイト相)からマルテンサイト相へ、あるいはマルテンサイト相から母相への相変態によって生じる。この変形と原子の移動の様子を右図に模型的に示す。</li>
+                                <li>一般の合金(a)では、負荷を加えると特定の面ですべりが生じ、せん断ひずみが生じる。また、このすべり変形では結晶の構造は変わらない。</li>
+                                <li>形状記憶合金(b)では、母相は変態点以下に冷却すると結晶構造が変り、マルテンサイト相になる。この状態で変形させると、隣の原子同士が連なって(切れることなく)折れ曲がるような形でせん断変形する。これを変態点以上に加熱すると母相に逆変態し、元の形にもどる。これが形状記憶効果である。</li>
+                                <li>変態点以上の温度で母相を変形させると、外力によりマルテンサイト相が誘起されながら変形する。外力を除くと、エネルギー的に不安定なマルテンサイト相から母相に逆変態し、もとの形にもどる。これが超弾性である</li>
+                                <li>参考：<a href="https://www.furukawa-ftm.com/tokusyu/technical/technical/">形状記憶合金とは(古河テクノマテリアル)</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5 align-center">
+                            <img src="imgs/keijouhenka.png" alt="keijouhenka" width="250">
+                            <p>原子の移動と形状変化の模式図</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="base">観覧車模型の基本構想</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul>
+                                <li>観覧車模型として参考にしたのは<a href="https://https://www.youtube.com/shorts/SPpvQq3kDwA">観覧車模型</a>である。</li>
+                                <li>ただ、動画ではヒートガンで一部を温めているように見えるが、その他詳細構造は不明である。</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 align-center">
+                            <img src="imgs/model_ref.png" alt="model_ref" width="200">
+                            <p style="margin: 0;">観覧車模型の例</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ　-->
+            <div>
+                <section class="parag3">
+                    <h2>基本構想</h2>
+                    <div style="margin: 0 10px;" class="row">
+                        <div class="col-sm-6 align-center">
+                            <img src="imgs/Base_design_1.png" alt="Base_design_1" width="300">
+                            <p style="margin-top: 10px;">自然長が3~4cm程度の形状記憶合金製のバネを、5～6cmに伸ばしながら放射状に配置し、リング(観覧車)を製作する。内輪は外輪に引っ張られながら平衡して安定する。</p>
+                        </div>
+                        <div class="col-sm-6 align-center">
+                            <img src="imgs/Base_design_2.png" alt="Base_design_2" width="280">
+                            <p style="margin-top: 10px;">輪の片側(図では右側)の一部(例えば点線部)を変態点以上に熱するとバネに元にもどろうとする力が働く。この力は室温の左側より強いので右側のバネが縮む。すると、左側に重心が移り回転モーメントが発生しリングは回転する。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="junbi">用意するもの</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>用意するもの</li>
+                    </ul>
+                    <p style="margin-top: 10px; text-align: center">
+                        <img src="imgs/junbi.png" alt="junbi" width=70%>
+                    </p>          
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <div>
+                <section class="parag">
+                    <h2>形状記憶合金製バネ</h2>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul>
+                                <li>市販品(通販) 16個</li>
+                                <p style="padding-left: 3em; margin: 0;">・メーカー：ナリカ</p>
+                                <P style="padding-left: 3em; margin: 0;">・商品名：形状記憶合金</P>
+                                <p style="padding-left: 3em; margin: 0;">・品番：P70-3806</p>
+                                <p style="padding-left: 3em; margin: 0;">・材質：ニッケルチタン合金</p>
+                                <P style="padding-left: 3em; margin: 0;">・変位点：40～50℃</P>
+                                <p style="padding-left: 3em; margin: 0;">・寸法：φ0.75x6(巻径)x16</p>
+                                <p style="padding-left: 3em; margin: 0;">・フック付き</p>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5 align-center">
+                            <img src="imgs/narika.png" alt="narika" width="250">
+                            <p>形状記憶合金製バネ</p>
+                        </div>
+                    </div>
+                    <h2>シリコンラバーヒータ</h2>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul>
+                                <li>市販品 2枚</li>
+                                <p style="padding-left: 3em; margin: 0;">・メーカー：八光電機</p>
+                                <P style="padding-left: 3em; margin: 0;">・商品名：シリコンラバーヒータ―</P>
+                                <p style="padding-left: 3em; margin: 0;">・品番：SBH2133</p>
+                                <p style="padding-left: 3em; margin: 0;">・寸法：100 mm x 100 mm x t1.5 mm</p>
+                                <P style="padding-left: 3em; margin: 0;">・容量：100 V 入力。60 W</P>
+                                <p style="padding-left: 3em; margin: 0;">・材質：ニッケル-クロム系金属発熱体。リード線はNi導線</p>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5 align-center">
+                            <img src="imgs/heater.png" alt="heater" width="220">
+                            <p>シリコンラバーヒータ―</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="kiso">基礎実験</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>バネ単体(1本)の試験</h2>
+                        <div class="col-sm-6">
+                            <ul>
+                                <li>伸ばしたバネ単体をヒートガンで温めてみた。</li>
+                                <li>加熱すると縮んで自然長に戻る。室温になってもそのままである。</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 align-center">
+                            <video src="imgs/one_coil_test.mp4" alt="one_coil_test" width="200" autoplay muted>再生できません</video>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>2連のバネでの試験</h2>
+                        <div class="col-sm-6">
+                            <ul>
+                                <li>2連結にして、空冷しながら片側づつ温めてみた。</li>
+                                <li>温めた方のバネの復元力が強くなり(<math><mi>k</mi></math>値が強くなり)、縮む。冷えてくるとバネ定数が小さくなって元の釣り合いの位置に戻っていく。この原理で観覧車模型が回転することが期待される。</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 align-center">
+                            <video src="imgs/two_coil_test.mp4" alt="two_coil_test" width="200" autoplay muted>再生できません</video>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <h2>バネ定数の測定</h2>
+                        <div class="col-sm-5">
+                            <ul>
+                                <li>形状記憶合金バネの片端を水槽の底に、側面に長さを測る定規を固定した。水槽に水を満たし、水を温めてバネ全体の温度を調整した。</li>
+                                <li>バネの固定していない上端をばねばかりで引っ張り、長さとその時の荷重(張力)、温度を測定。引っ張った後、ゆっくり力を緩めた。</li>
+                                <li>結果を右図に示す。40℃以上では、緩めてもほぼ同じ軌跡で元にもどるが、その温度以下では伸びが残る。</li>
+                                <li>温度が高いほど、引っ張り力/バネの長さ(線の傾き)、すなわちバネ定数(<math><mi>k</mi></math>)が大きい。</li>
+                                <li>下記も参照。</li>
+                                <p style="padding-left: 3em; margin: 0;"><a href="https://www.jstage.jst.go.jp/article/trbane1952/1985/30/1985_30_25/_article/-char/ja/">TiNi形状記憶合金コイルばねの特性</a>(2026/4)</p>
+                            </ul>
+                        </div>
+                        <div class="col-sm-3 align-center">
+                            <img src="imgs/spring_constant_exp.png" alt="spring_constant_exp" width="80%">
+                            <p style="margin-top: 10px;">セットアップ</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <img src="imgs/spring_constant_result.png" alt="spring_constant_result" width="80%">
+                            <p style="margin: 10px 0 0 0;">各温度でのバネの長さと引張り力。線の傾きがバネ定数(<math><mi>k</mi></math>)となる。</p>
+                            <p style="margin: 0;">温度が高い時、力を緩めると元の線を辿って元の長さに戻る。</p>
+                            <p style="margin: 0;">温度が低い時、力を弱めると伸びは元に戻らない。加熱すると元にもどる。</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ　-->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="buhin">部品の製作</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>内輪、外輪の概略寸法を下記に示す。今回の実験では、内輪は、CADで作図し、3Dプリンタを使って樹脂で製作した。ただし、ヒータ近くでの過熱に注意が必要である。実際、一度実験中に熱で変形した。</li>
+                        <li>外輪はヒータ部で高温になるので、金属製が良い。一方、停止状態でも重さで上側のバネが伸びないよう、軽い方が良い。1.5mm厚アルミ板とかが適当。(当初、外輪も樹脂で製作したが、何回か熱で変形させてしまった。)</li>
+                        <li>使用するバネの数は16個。内輪、外輪に径2㎜の穴を等間隔で16個あけ、バネの両端のフックを固定できるようにする。</li>
+                        <li>取付時のバネの長さは約50mm。すなわち、約15mm伸びた状態である。</li>
+                    </ul>
+                    <p style="text-align: center;">
+                        <img src="imgs/ring.png" alt="ring" width=60%>
+                    </p>          
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="kumitate">組立て</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <ul>
+                                <li>内輪にベアリングをはめ込み、支柱に固定する。支柱は市販の鉄アングルを使用した。</li>
+                                <li>ラバーヒータ(シートヒータ)をアルミ板にクリップで取付け、2枚を観覧車を挟むように設置した。設置場所は、最終的に片側(右図では右側)の下側にした。</li>
+                                <li>アルミ板は市販の鉄アングルにネジで固定。</li>
+                                <li>全体をアルミの台座の上にネジで固定した。</li>
+                                <li>ヒータの電源はAC100 V入力、最大130 V出力の変圧器。電圧を調整し、ヒータ温度を制御できるようにした。</li>
+                                <li>組立後、観覧車が手動で軽く回るようにしておく。どこか一部分バネが伸びていると、ある位置で止まる(ブランコのようになる)ので、長く回るようにバランスを取っておく。</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5 align-center">
+                            <img src="imgs/kumitate.jpg" alt="kumitate" width=90%>
+                            <p>組み立てた観覧車</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ　-->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="souchi">実験装置</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>実験装置全体を下図に示す。</li>
+                    </ul>
+                    <div style="text-align: center;">
+                        <img src="imgs/souchi.png" alt="souchi" width=80%>
+                        <p>実験装置全体図</p>
+                    </div>          
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="kekka">実験結果</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>いろいろな試行錯誤の結果、最終的には観覧車を滑らかに回転させることができた。</li>
+                        <li>温める場所は、いろいろ場所を試したが、片側の下側(下のビデオでは右下)とした場合が最も速く回転した。理由としては、回転しているため、加熱されたバネが縮む場所が加熱部から外に出た所まで残り(ビデオでは右側全体)、その結果回転モーメントが最も大きくなるからと考えられる。加熱部を上に上げると、バネが縮んだ状態が左側まで一部残り、結局回転モーメントは小さくなるり、回転速度は落ちる。</li>
+                        <li>加熱部のヒータの入力パワー(電圧)を変えると回転数は変化した。加熱部の温度が高いほど回転数は大きくなった。(詳細は後述)</li>
+                        <li>加熱部を出た後、バネをできるだけ効率よく冷やすことが重要である。実験では、送風機を横から当て、強制対流で冷却効率を上げたり、気化熱を利用しようと加湿器を用いたりした。ビデオでは送風機を遠くに置き、風を観覧車の上部に当てている。もちろん、加熱せず、風のみでは観覧車が回らないことは確認済みである。また、加湿器を用いた場合は、上部を冷やすと回転が速くなった。加熱部と反対側に冷凍庫で冷やした保冷剤を置いてみたが効果は薄かった。</li>
+                        <li>下のビデオは、加熱パワー、冷却方法により回転数が変わる様子である。</li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-sm-6 align-center">
+                            <video src="imgs/slow.mp4" alt="slow" width="80%" autoplay muted>再生できません</video>
+                        </div>
+                        <div class="col-sm-6 align-center">
+                            <video src="imgs/fast.mp4" alt="fast" width="80%" autoplay muted>再生できません</video>
+                        </div> 
+                    </div>
+                    <hr>
+                    <h2>加熱部温度と回転数</h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul>
+                                <li>加熱部の位置を固定し、加熱部の温度を徐々に変えて毎分の回転数を測定した。</li>
+                                <li>周囲温度は、観覧車の上部、左側、下部で測定し、ファン、加湿器、ヒートガン等で調整した。</li>
+                                <li>100℃近くまでの範囲では、温度を上げると回転速度は速くなった。そして、右図のように、回転速度は周囲温度との温度差にほぼ比例した。</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 align-center">
+                            <img src="imgs/rotation_speed.png" alt="rotation_speed" width=90%>
+                        </div> 
+                    </div>
+                    <hr>
+                    <h2>結果の検討(簡単な力学モデル)</h2>
+                    <div class="row">
+                        <ul>
+                            <li>上述したように、回転数は加熱部と冷却部(周囲)の温度差にほぼ比例した。以下、この理由を説明する簡単な力学モデルを考えてみる。</li>
+                        </ul>
+                        <ul>
+                            <p style="text-align: center;">
+                                <img src="imgs/model_p1.png" alt="model_p1" width=75%>
+                                <img style="margin-top: 10px;" src="imgs/model_p2.png" alt="model_p2" width=75%>
+                            </p>
+                        </ul>
+                        <ul>
+                            <li>つまり、上の仮定の範囲では、回転速度<math><mi>ω</mi></math>は近似的にヒータ温度と周囲温度の差(<math><msub><mi>T</mi><mi>B</mi></msub></math><mo>-</mo><math><msub><mi>T</mi><mi>A</mi></msub></math>)に比例することがわかる。</li>
+                            <li>温度差以外で、回転速度<math><mi>ω</mi></math>を大きくするためには</li>
+                            <p style="padding-left: 3em; margin: 0;"><math><mi>α</mi></math>を大きくする ⇒ <math><mi>k</mi></math>の温度変化が大きい動作領域を使う。</p>
+                            <p style="padding-left: 3em; margin: 0;"><math><mi>β</mi></math>を大きくする ⇒ 直径を大きくする？慣性モーメントは大きくなるが。</p>
+                            <p style="padding-left: 3em; margin: 0;"><math><mi>γ</mi><msub><mi>F</mi><mi>r</mi></msub></math>を小さくする ⇒ 抵抗(摩擦)を小さくする。</p>
+                            <p style="padding-left: 3em; margin: 0;"><math><msub><mi>θ</mi><mi>A</mi></msub></math>、<math><msub><mi>θ</mi><mi>B</mi></msub></math>を大きくする ⇒ バネとヒータ、周囲との熱伝導を大きくする。風量？</p>
+                            <li>ちなみに、もし抵抗<math><msub><mi>F</mi><mi>r</mi></msub></math>が回転速度<math><mi>ω</mi></math>に比例する場合、回転速度は温度差(<math><msub><mi>T</mi><mi>B</mi></msub></math><mo>-</mo><math><msub><mi>T</mi><mi>B</mi></msub></math>)の平方根に比例することがわかる。しかし、結果をみると、ほぼ比例している。</li>
+                            <li>いろいろ条件を変えて実験すれば、上記パラメータの影響具合が確かめられるだろう。</li>
+                        </ul>
+                    </div>
+                    <hr>
+                    <h2>最終状態</h2>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <ul>
+                                <li>最終状態での観覧車模型の回転の様子を右図に示す。</li>
+                                <li>観覧車を模擬した簡単な装飾を加えている。</li>
+                            </ul>
+                        </div>
+                        <div class="col-sm-6 align-center">
+                            <video src="imgs/final_screenshot.mp4" alt="final_screenshot" width="250" autoplay muted>再生できません</video>
+                        </div> 
+                    </div>
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ　-->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="shaji">謝辞</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>本実験は、日本大学理工学部物理学科の2025年度プロジェクト実験の一環として、同学部の実験室で行われました。</li>
+                        <li>実験は、本テーマを希望した学部3年生二人と共に行いました。</li>
+                        <li>実験に用いた部品等は主に日本大学の予算で購入しました。</li>
+                        <li>測定機器等は主に日本大学物理学科、およびKEK真空グループの機器を借用しました。</li>
+                        <li>最後に、本実験に際し、物理学科の多くの教員の方にご協力頂き、また有用な助言を多数頂きました。深く感謝いたします。</li>
+                    </ul>        
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <div>
+                <section class="parag">
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h1 id="iken">ご意見など</h1>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="margin-top: 15px;"><a href="#TOP">TOPへもどる</a></p>
+                        </div>
+                    </div>
+                    <form action="https://formspree.io/f/mjglqpnp" method="POST" class="row">
+                        <input type="hidden" name="送信されたページ" value="Ferris_Wheel">
+                        <div class="col-sm-2">
+                            <p> </p>
+                        </div>
+                        <div class="col-sm-8">
+                            <p>この度は本ページをご覧頂きありがとうございます。ご意見、ご質問などございましたら、以下のフォームにご記入頂き、送信して頂ければ幸いです。なお、頂いた情報は本ページの改善等以外の目的には使用いたしません。</p>
+                            <!-- 名前 -->
+                            <div class="form-group">
+                                <label for="name">お名前:</label>
+                                <input type="text" id="name" name="name" required class="form-control">
+                            </div>
+                            <!-- メールアドレス -->
+                            <div class="form-group">
+                                <label for="email">メールアドレス:</label>
+                                <input type="email" id="email" name="_replyto" required class="form-control">
+                            </div>
+                            <!-- メモ -->
+                            <div class="form-group">
+                                <label for="message">ご意見など：</label>
+                                <textarea id="message" name="message" rows="8" required class="form-control"></textarea>
+                            </div>
+                            <br>
+                            <!-- 送信ボタン -->
+                            <button type="submit">送信する</button>
+                            <br>
+                        </div><!-- col-sm-8 -->
+                        <div class="col-sm-2">
+                            <p> </p>
+                        </div>
+                    </form>       
+                </section>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <div>
+                <ul>
+                    <li>2026/##/## ver.1</li>
+                </ul>
+            </div>
+            <hr>
+            <!-- 次のセクションへ -->
+            <footer>
+                <p style="font-size: 150%;">&copy; Y.S.</p>
+            </footer>
+        </div>
+    </body>
+</html>
