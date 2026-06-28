@@ -87,7 +87,7 @@ header h1{
 .parag ul{
     padding-left: 2em; /* 番号のスペースを確保 */
     margin: 0; /* 余白をなくす */
-    list-style: disc inside; /* リストのスタイルを算用数字に */
+    /* list-style: disc inside; /* リストのスタイルを算用数字に */
 }
 
 .parag ul li{
@@ -132,7 +132,7 @@ header h1{
 .parag3 ul{
     padding-left: 2em; /* 番号のスペースを確保 */
     margin: 0; /* 余白をなくす */
-    list-style: disc inside; /* リストのスタイルを算用数字に */
+    /* list-style: disc inside; /* リストのスタイルを算用数字に */
 }
 
 .parag3 ul li{
@@ -181,6 +181,19 @@ header h1{
 footer{
     text-align: center;
     font-size: 80%;
+}
+
+/* MathML全体のデフォルト余白をリセット */
+math {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* 変数（mi）タグの余白を一括リセット */
+math mi {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 @media only screen and (max-width:600px){
