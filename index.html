@@ -421,27 +421,186 @@
                     </div>
                     <hr>
                     <h2>観測結果の検討(簡単な物理的モデル)</h2>
+                    <ul>
+                        <li>上述したように、回転数は加熱部と冷却部(周囲)の温度差にほぼ比例した。以下、この理由を説明する簡単な物理的モデルを考えてみる。</li>
+                        <ul>
+                            <li style="border: none;">仮定１：バネ定数<i>k</i>[荷重/伸び]の変化分Δ<i>k</i>は温度上昇Δ<i>T</i>に比例する。</li>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                            <mi mathvariant="normal">Δ</mi><mi>k</mi><mo>=</mo><mi>α</mi><mi mathvariant="normal">Δ</mi><mi>T</mi>
+                            </math>
+                            <li>ここでαは定数である。初期値(低温時)の<i>k</i>を<math><msub><mi>k</mi><mi>0</mi></msub></math>とすると、温度上昇Δ<i>T</i>時のkは</li>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                            <mi>k</mi><mo> = </mo><msub><mi>k</mi><mi>0</mi></msub><mo> + α</mo><mi>Δk</mi><mo> = </mo><msub><mi>k</mi><mi>0</mi></msub><mo> + α</mo><mi>ΔT</mi>
+                            </math>
+                        </ul>
+                    </ul>
                     <div class="row">
-                        <ul>
-                            <li>上述したように、回転数は加熱部と冷却部(周囲)の温度差にほぼ比例した。以下、この理由を説明する簡単な物理的モデルを考えてみる。</li>
-                        </ul>
-                        <ul>
-                            <p style="text-align: center;">
-                                <img src="imgs/model_p1.png" alt="model_p1" width=75%>
-                                <img style="margin-top: 10px;" src="imgs/model_p2.png" alt="model_p2" width=75%>
-                            </p>
-                        </ul>
-                        <ul>
-                            <li>つまり、上の仮定の範囲では、回転速度<math><mi>ω</mi></math>は近似的にヒータ温度と周囲温度の差(<math><msub><mi>T</mi><mi>B</mi></msub></math><mo>-</mo><math><msub><mi>T</mi><mi>A</mi></msub></math>)に比例することがわかる。観測結果を定性的に説明できる。</li>
-                            <li>温度差以外で、回転速度<math><mi>ω</mi></math>を大きくするためには</li>
-                            <p style="padding-left: 3em; margin: 0;"><math><mi>α</mi></math>を大きくする ⇒ <math><mi>k</mi></math>の温度変化が大きい動作領域を使う。</p>
-                            <p style="padding-left: 3em; margin: 0;"><math><mi>β</mi></math>を大きくする ⇒ 直径を大きくする？慣性モーメントは大きくなるが。</p>
-                            <p style="padding-left: 3em; margin: 0;"><math><mi>γ</mi><msub><mi>F</mi><mi>r</mi></msub></math>を小さくする ⇒ 抵抗(摩擦)を小さくする。</p>
-                            <p style="padding-left: 3em; margin: 0;"><math><msub><mi>θ</mi><mi>A</mi></msub></math>、<math><msub><mi>θ</mi><mi>B</mi></msub></math>を大きくする ⇒ バネとヒータ、周囲との熱伝導を大きくする。風量？</p>
-                            <li>ちなみに、もし抵抗<math><msub><mi>F</mi><mi>r</mi></msub></math>が回転速度<math><mi>ω</mi></math>に比例する場合、回転速度は温度差(<math><msub><mi>T</mi><mi>B</mi></msub></math><mo>-</mo><math><msub><mi>T</mi><mi>B</mi></msub></math>)の平方根に比例することがわかる。しかし、結果をみると、ほぼ比例している。</li>
-                            <li>いろいろ条件を変えて実験すれば、上記パラメータの影響具合が確かめられるだろう。</li>
-                        </ul>
+                        <div class="col-sm-7">
+                            <ul>
+                                <ul>
+                                    <li>観覧車の左右(高温側と低温側)での力の釣り合いは(右図参照)、低温側のバネの長さを<math><msub><mi>x</mi><mi>0</mi></msub></math>、高温側に行ったと域の縮みをΔ<i>x</i>とし、低温側と高温側のバネの温度差をΔ<i>T</i>とすれば(それぞれ各側の平均)、<math><msub><mi>k</mi><mi>0</mi></msub></math>>> αΔ<i>T</i> (温度変化は小さい)として、</li>
+                                    <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                                    <msub><mi>x</mi><mi>0</mi></msub><msub><mi>k</mi><mi>0</mi></msub><mo> = (</mo><msub><mi>x</mi><mi>0</mi></msub><mo> - </mo><mi>Δx</mi><mo>)(</mo><msub><mi>k</mi><mi>0</mi></msub><mo> + α</mo><mi>ΔT</mi><mo>)</mo>
+                                    </math>
+                                    <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                                    <mfrac>
+                                    <mrow><msub><mi>x</mi><mi>0</mi></msub><mo> - </mo><mi>Δx</mi></mrow>
+                                    <mrow><msub><mi>x</mi><mi>0</mi></msub></mrow>
+                                    </mfrac>
+                                    <mo> = </mo>
+                                    <mfrac>
+                                        <mrow><msub><mi>k</mi><mi>0</mi></msub></mrow>
+                                        <mrow><msub><mi>k</mi><mi>0</mi></msub><mo> + α</mo><mi>ΔT</mi></mrow>
+                                    </mfrac>
+                                    </math>
+                                    <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                                    <mo>&there4;</mo>
+                                    <mfrac>
+                                        <mrow><mi>Δx</mi></mrow>
+                                        <mrow><msub><mi>x</mi><mi>0</mi></msub></mrow>
+                                    </mfrac>
+                                    <mo> = </mo>
+                                    <mfrac>
+                                        <mrow><mi>αΔT</mi></mrow>
+                                        <mrow><msub><mi>k</mi><mi>0</mi></msub><mo> + </mo><mi>αΔT</mi></mrow>
+                                    </mfrac>
+                                    <mo>&asymp;</mo>
+                                    <mfrac>
+                                        <mrow><mi>αΔT</mi></mrow>
+                                        <mrow><msub><mi>k</mi><mi>0</mi></msub></mrow>
+                                    </mfrac>
+                                    </math>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div class="col-sm-5 align-center">
+                            <img src="imgs/rot_model.png" alt="rot_model" width=80%>
+                        </div> 
                     </div>
+                    <ul>
+                        <ul>
+                            <li style="border: none;">仮定2：回転の加速度<math><mover><mi>ω</mi><mo>&#x02D9;</mo></mover></math>は回転力<math><msub><mi>F</mi><mi>c</mi></msub></math>、すなわち力のモーメント<i>M</i>に比例し、<i>M</i>は長さの違い<mi>Δx</mi>に比例する。一方、回転速度は摩擦力<math><msub><mi>F</mi><mi>r</mi></msub></math>で減速される。すなわち、<i>β</i>、<i>γ</i>を比例定数として、次式のように書くことができる。</li>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                            <mover><mi>ω</mi><mo>&#x02D9;</mo></mover><mo>∝</mo><msub><mi>F</mi><mi>c</mi></msub><mo>-</mo><msub><mi>F</mi><mi>r</mi></msub><mo> ⇒ </mo><mi>M</mi><mo>-</mo><msub><mi>F</mi><mi>r</mi></msub><mo> ⇒ </mo><mo>Δ</mo><mi>x</mi><mo>-</mo><msub><mi>F</mi><mi>r</mi></msub>
+                            </math>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                            <mo>&there4;</mo>
+                            <mover><mi>ω</mi><mo>&#x02D9;</mo></mover><mo>=</mo><mi>β</mi><mo>Δ</mo><mi>x</mi><mo> - </mo><mi>γ</mi><mo>Δ</mo><msub><mi>F</mi><mi>r</mi></msub>
+                            </math>
+                            <li style="border: none;">仮定3：バネの温度上昇は、ヒータ部や周囲温度との温度差に比例する。また、回転している状況を考え、ヒータ部や周囲部の通過速度、すなわち、回転速度<mi>ω</mi>に反比例する(<mi>ω</mi> > 0とする)。言い換えると、通過時間に比例する。これは<mi>ω</mi>が大きい時には成り立つと思われる。高温部、低温部のバネの温度を、それぞれ、<math><msub><mi>T</mi><mi>H</mi></msub></math>、<math><msub><mi>T</mi><mi>L</mi></msub></math>とし、その温度差をΔ<mi>T</mi>とする。また、周囲部温度、ヒータ部の温度をそれぞれ、<math><msub><mi>T</mi><mi>A</mi></msub></math>、<math><msub><mi>T</mi><mi>B</mi></msub></math>とする。さらに、周囲部とヒータ部の熱伝達に比例する定数を、それぞれ<math><msub><mi>θ</mi><mi>A</mi></msub></math>、<math><msub><mi>θ</mi><mi>B</mi></msub></math>とすると、</li>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                            <mo>Δ</mo><mi>T</mi><mo>=</mo><msub><mi>T</mi><mi>H</mi></msub><mo>-</mo><msub><mi>T</mi><mi>L</mi></msub><mo>=</mo><msub><mi>θ</mi><mi>A</mi></msub>
+                            <mfrac>
+                                <mrow><msub><mi>T</mi><mi>H</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub></mrow>
+                                <mrow><mi>ω</mi></mrow>
+                            </mfrac><mo>=</mo><msub><mi>θ</mi><mi>B</mi></msub>
+                            <mfrac>
+                                <mrow><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>L</mi></msub></mrow>
+                                <mrow><mi>ω</mi></mrow>
+                            </mfrac><mo>,</mo><mspace width="1em" /><mo>(</mo>
+                            <mfrac>
+                                <mrow><msub><mi>θ</mi><mi>A</mi></msub></mrow>
+                                <mrow><mi>ω</mi></mrow>
+                            </mfrac><mo>,  </mo>
+                            <mfrac>
+                                <mrow><msub><mi>θ</mi><mi>B</mi></msub></mrow>
+                                <mrow><mi>ω</mi></mrow>
+                            </mfrac><mo> < </mo><mo>1</mo><mo>)</mo>
+                            </math>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                            <mo>&there4;</mo><msub><mi>θ</mi><mi>B</mi></msub><mo>(</mo><msub><mi>T</mi><mi>H</mi></msub><mo>-</mo><msub><mi>T</mi><mi>L</mi></msub><mo>)</mo><mo>=</mo><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub>
+                            <mfrac>
+                                <mrow><msub><mi>T</mi><mi>H</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub></mrow>
+                                <mrow><mi>ω</mi></mrow>
+                            </mfrac><mo>,</mo><mspace width="1.5em" />
+                            <msub><mi>θ</mi><mi>A</mi></msub><mo>(</mo><msub><mi>T</mi><mi>H</mi></msub><mo>-</mo><msub><mi>T</mi><mi>L</mi></msub><mo>)</mo><mo>=</mo><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub>
+                            <mfrac>
+                                <mrow><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>L</mi></msub></mrow>
+                                <mrow><mi>ω</mi></mrow>
+                            </mfrac>
+                            </math>
+                            <li>この式から、</li>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                            <mo>(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo>+</mo><msub><mi>θ</mi><mi>B</mi></msub><mo>)</mo><mo>(</mo><msub><mi>T</mi><mi>H</mi></msub><mo>-</mo><msub><mi>T</mi><mi>L</mi></msub><mo>)</mo><mo>=</mo><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub>
+                            <mfrac>
+                                <mrow><msub><mi>T</mi><mi>H</mi></msub><mo>-</mo><msub><mi>T</mi><mi>L</mi></msub><mo>+</mo><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub></mrow>
+                                <mrow><mi>ω</mi></mrow>
+                            </mfrac>
+                            </math>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                            <mo>&there4;</mo><mo>(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo>+</mo><msub><mi>θ</mi><mi>B</mi></msub><mo>)</mo><mo>Δ</mo><mi>T</mi><mo>=</mo><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub>
+                            <mfrac>
+                                <mrow><mo>Δ</mo><mi>T</mi><mo>+</mo><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub></mrow>
+                                <mrow><mi>ω</mi></mrow>
+                            </mfrac>
+                            </math>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;">
+                            <mo>&there4;</mo><mo>Δ</mo><mi>T</mi><mo>=</mo>
+                            <mfrac>
+                                <mrow><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub></mrow>
+                                <mrow><mo>(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo>+</mo><msub><mi>θ</mi><mi>B</mi></msub><mo>)</mo><mi>ω</mi><mo>-</mo><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub></mrow>
+                            </mfrac>
+                            <mo>(</mo><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub><mo>)</mo><mo>&asymp;</mo>
+                            <mfrac>
+                                <mrow><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub></mrow>
+                                <mrow><mo>(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo>+</mo><msub><mi>θ</mi><mi>B</mi></msub><mo>)</mo><mi>ω</mi></mrow>
+                            </mfrac>
+                            <mo>(</mo><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub><mo>)</mo>
+                            </math>
+                            <li>以上をまとめると次式を得る。</li>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;"><mover><mi>ω</mi><mo>&#x02D9;</mo></mover><mo>=</mo><mi>β</mi><mo>Δ</mo><mi>x</mi><mo>-</mo><mo>γ</mo><msub><mi>F</mi><mi>r</mi></msub><mo>&asymp;</mo>
+                            <mfrac>
+                                <mrow><mi>α</mi><mi>β</mi><msub><mi>x</mi><mi>0</mi></msub></mrow>
+                                <mrow><msub><mi>k</mi><mi>0</mi></msub></mrow>
+                            </mfrac><mo>Δ</mo><mi>T</mi><mo>-</mo><mi>γ</mi><msub><mi>F</mi><mi>r</mi></msub><mo>&asymp;</mo>
+                            <mfrac>
+                                <mrow><mi>α</mi><mi>β</mi><msub><mi>x</mi><mi>0</mi></msub></mrow>
+                                <mrow><msub><mi>k</mi><mi>0</mi></msub></mrow>
+                            </mfrac>
+                            <mfrac>
+                                <mrow><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub></mrow>
+                                <mrow><mo>(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo>+</mo><msub><mi>θ</mi><mi>B</mi></msub><mo>)</mo><mi>ω</mi></mrow>
+                            </mfrac><mo>(</mo><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub><mo>)</mo><mo>-</mo><mi>γ</mi><msub><mi>F</mi><mi>r</mi></msub>
+                            </math>
+                            <li>定常状態では<math><mover><mi>ω</mi><mo>&#x02D9;</mo></mover><mo>=</mo><mo>0</mo></math>なので、</li>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;"><mfrac>
+                                <mrow><mi>α</mi><mi>β</mi><msub><mi>x</mi><mi>0</mi></msub></mrow>
+                                <mrow><msub><mi>k</mi><mi>0</mi></msub></mrow>
+                            </mfrac>
+                            <mfrac>
+                                <mrow><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub></mrow>
+                                <mrow><mo>(</mo><msub><mi>θ</mi><mi>A</mi></msub><mo>+</mo><msub><mi>θ</mi><mi>B</mi></msub><mo>)</mo><mi>ω</mi></mrow>
+                            </mfrac><mo>(</mo><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub><mo>)</mo><mo>=</mo><mi>γ</mi><msub><mi>F</mi><mi>r</mi></msub>
+                            </math>
+                            <li>結局、次式が得られる。</li>
+                            <math display="block" mathsize="1.1em" style="margin: 10px 0;"><mi>ω</mi><mo>=</mo><mfrac>
+                                <mrow><mi>α</mi><mi>β</mi><msub><mi>x</mi><mi>0</mi></msub></mrow>
+                                <mrow><mi>γ</mi><msub><mi>F</mi><mi>r</mi></msub><msub><mi>k</mi><mi>0</mi></msub></mrow>
+                            </mfrac>
+                            <mfrac>
+                                <mrow><msub><mi>θ</mi><mi>A</mi></msub><msub><mi>θ</mi><mi>B</mi></msub></mrow>
+                                <mrow><msub><mi>θ</mi><mi>A</mi></msub><mo>+</mo><msub><mi>θ</mi><mi>B</mi></msub></mrow>
+                            </mfrac><mo>(</mo><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub><mo>)</mo><mo>=</mo><mfrac>
+                                <mrow><mi>α</mi><mi>β</mi><msub><mi>x</mi><mi>0</mi></msub></mrow>
+                                <mrow><mi>γ</mi><msub><mi>F</mi><mi>r</mi></msub><msub><mi>k</mi><mi>0</mi></msub></mrow>
+                            </mfrac>
+                            <mfrac>
+                                <mrow><mo>1</mo></mrow>
+                                <mrow><mo>1</mo><mo>/</mo><msub><mi>θ</mi><mi>A</mi></msub><mo>+</mo><mo>1</mo><mo>/</mo><msub><mi>θ</mi><mi>B</mi></msub></mrow>
+                            </mfrac><mo>(</mo><msub><mi>T</mi><mi>B</mi></msub><mo>-</mo><msub><mi>T</mi><mi>A</mi></msub><mo>)</mo>
+                            </math>
+                        </ul>
+                    </ul>
+                    <ul>
+                        <li>つまり、上の仮定の範囲では、回転速度<math><mi>ω</mi></math>は近似的にヒータ温度と周囲温度の差(<math><msub><mi>T</mi><mi>B</mi></msub></math><mo>-</mo><math><msub><mi>T</mi><mi>A</mi></msub></math>)に比例することがわかる。観測結果を定性的に説明できる。</li>
+                        <li>温度差以外で、回転速度<math><mi>ω</mi></math>を大きくするためには</li>
+                        <p style="padding-left: 3em; margin: 0;"><math><mi>α</mi></math>を大きくする ⇒ <math><mi>k</mi></math>の温度変化が大きい動作領域を使う。</p>
+                        <p style="padding-left: 3em; margin: 0;"><math><mi>β</mi></math>を大きくする ⇒ 直径を大きくする？慣性モーメントは大きくなるが。</p>
+                        <p style="padding-left: 3em; margin: 0;"><math><mi>γ</mi><msub><mi>F</mi><mi>r</mi></msub></math>を小さくする ⇒ 抵抗(摩擦)を小さくする。</p>
+                        <p style="padding-left: 3em; margin: 0;"><math><msub><mi>θ</mi><mi>A</mi></msub></math>、<math><msub><mi>θ</mi><mi>B</mi></msub></math>を大きくする ⇒ バネとヒータ、周囲との熱伝導を大きくする。風量？</p>
+                        <li>ちなみに、もし抵抗<math><msub><mi>F</mi><mi>r</mi></msub></math>が回転速度<math><mi>ω</mi></math>に比例する場合、回転速度は温度差(<math><msub><mi>T</mi><mi>B</mi></msub></math><mo>-</mo><math><msub><mi>T</mi><mi>B</mi></msub></math>)の平方根に比例することがわかる。しかし、結果をみると、ほぼ比例している。</li>
+                        <li>いろいろ条件を変えて実験すれば、上記パラメータの影響具合が確かめられるだろう。</li>
+                    </ul>
                     <hr>
                     <h2>最終状態</h2>
                     <div class="row">
